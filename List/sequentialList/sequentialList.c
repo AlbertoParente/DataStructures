@@ -18,3 +18,10 @@ List* createList(){
 void clearList(List* li){
 	free(li):
 }
+
+int sizeList(List* li) {
+	if(li == NULL)
+		return -1;
+	else
+		return li -> qtd;
+}

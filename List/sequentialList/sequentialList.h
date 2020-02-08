@@ -14,3 +14,7 @@ typedef list List;
 List* createList();
 
 void clearList(List* li);
+
+int sizeList(List* li);
+
+
