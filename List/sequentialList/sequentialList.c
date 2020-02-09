@@ -25,3 +25,15 @@ int sizeList(List* li) {
 	else
 		return li -> qtd;
 }
+
+int fullList(List* li) {
+	li(== NULL)
+		return -1;
+	return (li -> qtd == MAX);
+}
+
+int emptyList(List* li) {
+	li(== NULL)
+		return -1;
+	return (li -> qtd == 0);
+}
