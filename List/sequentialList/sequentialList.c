@@ -54,10 +54,33 @@ int insertListInitial(List* li, struct student al) {
 		return 0;
 	int i;
 	
-	for(i=li -> quantity-1; i>=0; i++)
+	for(i=li -> quantity-1; i>=0; i--)
 		li -> studentDados[i+1] = li -> studentDados[i];
 	li -> studentDados[0] = al;
 	li -> quantity++;
 	return 1;
+
+int insertListOrdered(List* li, struct student al) {
+	if(li == NULL)
+		return 0;
+	if(emptyList(li))
+		return 0;
+	int i, j = 0;
+	while(i < li -> quantity && li -> studentDados[i].registration < al.registration)
+		i++;
 	
+	for(j= li -> quantity -1; k >= i; k--)
+		li -> studentDados[i+1] = li -> studentDados[i];
+	li -> studentDados[0] = al;
+	li -> quantity++;
+	return 1;
+}
+
+
+
+
+
+
+
+
 }

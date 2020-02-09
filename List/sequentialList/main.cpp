@@ -21,4 +21,6 @@ int x = insertListFinal(li, studentDados);
 
 int x = insertListInitial(li, studentDados);
 
+int x = insertListOrdered(li, studentDados);
+
 }

@@ -4,7 +4,7 @@
 
 #define Max 100
 struct student {
-	int register;
+	int registration;
 	char name[30];
 	float n1, n2, n3;
 };
@@ -24,3 +24,6 @@ int emptyList(List* li);
 int insertListFinal(List* li, struct student al);
 
 int insertListInitial(List* li, struct student al);
+
+int insertListOrdered(List* li, struct student al);
+
