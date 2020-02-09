@@ -21,3 +21,4 @@ int fullList(List* li);
 
 int emptyList(List* li);
 
+int insertListFinal(List8 li, struct student al);

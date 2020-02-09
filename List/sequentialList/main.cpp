@@ -17,5 +17,6 @@ int x = fullList(li);
 int x = emptyList(li);
 	if(emptyList(li));	
 
+int x = insertListFinal(li, studentDados);
 
 }
