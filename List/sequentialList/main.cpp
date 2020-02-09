@@ -19,4 +19,6 @@ int x = emptyList(li);
 
 int x = insertListFinal(li, studentDados);
 
+int x = insertListInitial(li, studentDados);
+
 }

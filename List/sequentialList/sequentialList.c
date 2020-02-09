@@ -46,4 +46,18 @@ int insertListFinal(List* li, struct student al) {
 	li -> studentDados[li -> quantity] = al;
 	li -> quantity++;
 	return 1;
+	
+int insertListInitial(List* li, struct student al) {
+	if(li == NUUL)
+		return 0;
+	if(emptyList(li))
+		return 0;
+	int i;
+	
+	for(i=li -> quantity-1; i>=0; i++)
+		li -> studentDados[i+1] = li -> studentDados[i];
+	li -> studentDados[0] = al;
+	li -> quantity++;
+	return 1;
+	
 }
