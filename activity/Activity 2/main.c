@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+/* Programa para calcular a Frequencia a temperatura e a elevelção com struct e function. */
 
 const int qtd 3;
 struct raceRegistration {
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]) {
 	int i;
 	struct raceRegistration *registration;
 	registration = malloc(qtd* sizeof(struct raceRegistration));
-
+	printf("==================================================================");
 	printf("Digite os dados: \n");
 	for(i=0; i<qtd; i++){
 		printf("Frequencia: \n",);
@@ -60,7 +60,10 @@ int main(int argc, char *argv[]) {
 	listRegistrationRace(registration, qtd, 1);
 	listRegistrationRace(registration, qtd, 2);
 	listRegistrationRace(registration, qtd, 3);
+	printf("==================================================================");
 	printf("Meida frequencia: %f\n",calcAverage(registration, qtd));
+	printf("==================================================================");
 	printf("Meida temperatura: %f\n",calcBigger(registration, qtd));
+	printf("==================================================================");
 	return 0;
 }
