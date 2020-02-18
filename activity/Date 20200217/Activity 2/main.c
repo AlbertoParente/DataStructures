@@ -9,21 +9,25 @@ typedef struct Smartphone{
 	float height, width;
 }TSmartphone;
 
+typedef struct Scoreboard{
+	int teamLeft;
+	int teamRight;
+}TScoreboard;
+
 typedef struct SoccerMatch{
 	char nameTeamLeft[30];
 	char nameTeamRight[30];
-	
+	TScoreboard *scoreboard;
 }TSoccerMatch;
 
-typedef struct Scoreboard{
-	int TeamLeft[30];
-	int TeamRight[30];
-}TScoreboard;
-
-
 int main(int argc, char *argv[]) {
-	TSmartphone Smartphone, *pSmartphone;
+	TSmartphone *pSmartphone;
 	pSmartphone = (TSmartphone *)malloc(sizeof(TSmartphone));
+	
+	TSoccerMatch *pSoccerMatch;
+	pSoccerMatch = (TSoccerMatch *)malloc(sizeof(TSoccerMatch));
+	
+	pSoccerMatch -> scoreboard = (TScoreboard *)malloc(sizeof(TScoreboard));
 	
 	printf("Digite o modelo: ");
 	gets(pSmartphone -> model);
@@ -34,6 +38,22 @@ int main(int argc, char *argv[]) {
 	printf("Digite a altura e a largura: ");
 	scanf("%f %f",&pSmartphone -> height, &pSmartphone -> width);
 	
-	printf("%s %i %f %f ", pSmartphone -> model, pSmartphone -> memory, pSmartphone -> height, pSmartphone -> width);
+	printf("%s %i %f %f \n", pSmartphone -> model, pSmartphone -> memory, pSmartphone -> height, pSmartphone -> width);
+	/*=================================================================================================================*/
+	fflush(stdin);
+	printf("Digite o nome do time A: ");
+	gets(pSoccerMatch -> nameTeamLeft);
+	
+	printf("Digite o nome do time B: ");
+	gets(pSoccerMatch -> nameTeamRight);
+	
+	printf("Placar do time A: ");
+	scanf("%i",&pSoccerMatch -> scoreboard -> teamLeft);
+	
+	printf("Placar do time B: ");
+	scanf("%i",&pSoccerMatch -> scoreboard -> teamRight);
+	
+	printf("Time %s: %i \nTime %s:  %i", pSoccerMatch -> nameTeamLeft, pSoccerMatch -> scoreboard -> teamLeft, pSoccerMatch -> nameTeamRight, 
+							 pSoccerMatch -> scoreboard -> teamRight);
 	return 0;
 }
