@@ -19,9 +19,14 @@ TSoccer* newSoccer(char team1[30], char team2[30], int soccer1, int soccer2){
 }
 
 void winner(TSoccer * soccer){
-	if(soccer -> scoreboard.soccer1 - soccer -> scoreboard.soccer2 > 3 || 
-	   soccer -> scoreboard.soccer2 - soccer -> scoreboard.soccer1 > 3)
-	   return 1;
+	if(soccer -> scoreboard.soccer1 > soccer -> scoreboard.soccer2){
+		printf("Vencedor: %s\n", soccer -> team1);
+	}
+	else if(soccer -> scoreboard.soccer2 > soccer -> scoreboard.soccer1){
+		printf("Vencedor: %s\n", soccer -> team2);
+	}
+	else
+		printf("Empate...!\n");
 }
 
 void rout(TSoccer * soccer){
