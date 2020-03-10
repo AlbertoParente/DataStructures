@@ -1,6 +1,10 @@
-typedef struct Stack stack;
+typedef struct Stack TStack;
 TStack *neww(int n);
 void stackUp(TStack *stack, int x);
 int unstack(TStack *stack);
 int size(TStack *stack);
+int stackEmpty(TStack *stack);
+void show(TStack *stack);
+TStack *reverse(TStack *stack);
+TStack *reverseVector(TStack *stack);
 int top(TStack *stack);
