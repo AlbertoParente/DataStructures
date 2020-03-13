@@ -23,7 +23,7 @@ void stackUp(TStack *stack, int x){
 }
 
 
-int unstack(TStack *stack){
+int unStack(TStack *stack){
 	if(stack -> ts > -1){
 		stack -> ts = stack -> ts -1;
 		return stack -> vector[stack -> ts + 1];
@@ -44,12 +44,15 @@ void show(TStack *stack){
 	}
 }
 
-TStack *reverse(TStack *stack){
-	Stack stackAux = neww();
-	int i;
-	for(i = 0; i < stack->qtd; i++){
-		stack[i] = unstack();
-		return stackAux;
+void reverse(TStack *stack){
+	TStack *stackAux = neww(stack -> qtd);
+	int i, j, index;
+	for(i=0; i<=satck -> qtd; i++){
+		stackUp(stackAux, unStack(stack));
+	}
+	
+	for(j=0; j<=stackAux -> qtd; j++){
+		stackUp(stack, stackAux -> vector[j]);
 	}
 }
 
