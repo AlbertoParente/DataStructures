@@ -35,7 +35,13 @@ int size(TStack *stack){
 	return stack -> qtd;
 }
 
-int stackEmpty(TStack *stack);
+int stackEmpty(TStack *stack){
+	if(stack->top == -1){
+        return 0;
+    }
+    return 1;
+}
+
 
 void show(TStack *stack){
 	int i;
@@ -66,4 +72,6 @@ TStack *reverseVector(TStack *stack) {
     return stackAux;
 }
 
-int top(TStack *stack);
+int top(TStack *stack){
+	return stack->vector[stack->top];
+}
