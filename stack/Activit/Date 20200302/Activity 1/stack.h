@@ -6,5 +6,5 @@ int size(TStack *stack);
 int stackEmpty(TStack *stack);
 void show(TStack *stack);
 void reverse(TStack *stack);
-TStack *reverseVector(TStack *stack);
+void *reverseVector(TStack *stack);
 int top(TStack *stack);
