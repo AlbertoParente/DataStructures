@@ -3,13 +3,12 @@
 
 /* Programa para calcular a Frequencia a temperatura e a elevelção com struct e function. */
 
-const int qtd 3;
+const int qtd = 3;
 struct raceRegistration {
 	float frequency, temperature, elevation;
-	
 };
 
-void listRegistrationRace(struct raceRegistration *rr, int n, int, info) {
+void listRegistrationRace(struct raceRegistration *rr, int n, int info) {
 	int i;
 	switch (info){
 		case 1: for(i=0; i<n; i++){
@@ -18,7 +17,7 @@ void listRegistrationRace(struct raceRegistration *rr, int n, int, info) {
 		case 2: for(i=0; i<n; i++){
 			printf("%f\n", rr[i].temperature);
 		} break;
-		case 2: for(i=0; i<n; i++){
+		case 3: for(i=0; i<n; i++){
 			printf("%f\n", rr[i].elevation);
 		} break;
 		default: printf("Valor Invalido");
@@ -47,23 +46,23 @@ int main(int argc, char *argv[]) {
 	int i;
 	struct raceRegistration *registration;
 	registration = malloc(qtd* sizeof(struct raceRegistration));
-	printf("==================================================================");
-	printf("Digite os dados: \n");
+	printf("==================================================================\n");
+	printf("\t\t-- Digite os dados -- \n");
 	for(i=0; i<qtd; i++){
-		printf("Frequencia: \n",);
+		printf("Frequencia: \n");
 		scanf("%f",&registration[i].frequency);
-		printf("Temperatura: \n",);
+		printf("Temperatura: \n");
 		scanf("%f",&registration[i].temperature);
-		printf("Elevacao: \n",);
+		printf("Elevacao: \n");
 		scanf("%f",&registration[i].elevation);
 	}
 	listRegistrationRace(registration, qtd, 1);
 	listRegistrationRace(registration, qtd, 2);
 	listRegistrationRace(registration, qtd, 3);
-	printf("==================================================================");
-	printf("Meida frequencia: %f\n",calcAverage(registration, qtd));
-	printf("==================================================================");
-	printf("Meida temperatura: %f\n",calcBigger(registration, qtd));
+	printf("==================================================================\n");
+	printf("Media frequencia: %f\n",calcAverage(registration, qtd));
+	printf("==================================================================\n");
+	printf("Media temperatura: %f\n",calcBigger(registration, qtd));
 	printf("==================================================================");
 	return 0;
 }
