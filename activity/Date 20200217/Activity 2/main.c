@@ -29,31 +29,34 @@ int main(int argc, char *argv[]) {
 	
 	pSoccerMatch -> scoreboard = (TScoreboard *)malloc(sizeof(TScoreboard));
 	
-	printf("Digite o modelo: ");
+	printf("Digite o modelo: \n");
 	gets(pSmartphone -> model);
 	
-	printf("Digite a memory: ");
-	scanf("%i",& pSmartphone -> memory);
+	printf("Digite a memory: \n");
+	scanf("%i",&pSmartphone -> memory);
 	
-	printf("Digite a altura e a largura: ");
+	printf("Digite a altura e a largura: \n");
 	scanf("%f %f",&pSmartphone -> height, &pSmartphone -> width);
 	
-	printf("%s %i %f %f \n", pSmartphone -> model, pSmartphone -> memory, pSmartphone -> height, pSmartphone -> width);
-	/*=================================================================================================================*/
+	printf("\n%s \nMemoria de %iG\nAltura de %f\nLargura de %f \n", pSmartphone -> model, pSmartphone -> memory, pSmartphone -> height, pSmartphone -> width);
+	printf("\n=================================================================================================================\n\n");
+	
 	fflush(stdin);
-	printf("Digite o nome do time A: ");
+	
+	printf("Digite o nome do time A: \n");
 	gets(pSoccerMatch -> nameTeamLeft);
 	
-	printf("Digite o nome do time B: ");
+	printf("Digite o nome do time B: \n");
 	gets(pSoccerMatch -> nameTeamRight);
 	
-	printf("Placar do time A: ");
+	printf("Placar do time A: \n");
 	scanf("%i",&pSoccerMatch -> scoreboard -> teamLeft);
 	
-	printf("Placar do time B: ");
+	printf("Placar do time B: \n");
 	scanf("%i",&pSoccerMatch -> scoreboard -> teamRight);
 	
-	printf("Time %s: %i \nTime %s:  %i", pSoccerMatch -> nameTeamLeft, pSoccerMatch -> scoreboard -> teamLeft, pSoccerMatch -> nameTeamRight, 
-							 pSoccerMatch -> scoreboard -> teamRight);
+	printf("\nTime %s: %i \nTime %s: %i", pSoccerMatch -> nameTeamLeft, pSoccerMatch -> scoreboard -> teamLeft, 
+	       pSoccerMatch -> nameTeamRight, pSoccerMatch -> scoreboard -> teamRight);
+	
 	return 0;
 }
