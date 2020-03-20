@@ -5,8 +5,8 @@ typedef struct {
 }TScoreboard;
 
 struct Soccer {
-	chat team1[30];
-	chat team2[30];
+	char team1[30];
+	char team2[30];
 	TScoreboard scoreboard;
 };
 
@@ -15,10 +15,10 @@ TSoccer* newSoccer(char team1[30], char team2[30], int soccer1, int soccer2){
 	s -> team1 = team1;
 	s -> team2 = team2;
 	s -> scoreboard.soccer1 = soccer1;
-	s -> scoreboard.soccer2 = soccer;
+	s -> scoreboard.soccer2 = soccer2;
 }
 
-void winner(TSoccer * soccer){
+TSoccer* winner(TSoccer *soccer){
 	if(soccer -> scoreboard.soccer1 > soccer -> scoreboard.soccer2){
 		printf("Vencedor: %s\n", soccer -> team1);
 	}
@@ -29,7 +29,7 @@ void winner(TSoccer * soccer){
 		printf("Empate...!\n");
 }
 
-void rout(TSoccer * soccer){
+TSoccer* rout(TSoccer *soccer){
 	if(soccer -> scoreboard.soccer1 - soccer -> scoreboard.soccer2 > 3 || 
 	   soccer -> scoreboard.soccer2 - soccer -> scoreboard.soccer1 > 3)
 	   return 1;
