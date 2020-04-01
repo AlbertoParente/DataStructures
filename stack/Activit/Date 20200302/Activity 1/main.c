@@ -10,8 +10,11 @@ int main(int argc, char *argv[]) {
 	stackUp(s, 2);
 	stackUp(s, 3);
 	stackUp(s, 4);
+	removeValue(s, 4);
 	show(s);
-	s = reverse(s);
+	//top(s);
+	reverse(s);
+	
     printf("\n");
     show(s);
 	return 0;

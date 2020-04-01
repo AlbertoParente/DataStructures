@@ -4,7 +4,7 @@
 
 struct Stack {
 	int *vector;
-	int ts, qtd;
+	int ts, qtd, top;	
 };
 
 TStack *neww(int n){
@@ -22,7 +22,6 @@ void stackUp(TStack *stack, int x){
 	}
 }
 
-
 int unStack(TStack *stack){
 	if(stack -> ts > -1){
 		stack -> ts = stack -> ts -1;
@@ -31,8 +30,13 @@ int unStack(TStack *stack){
 	else 
 		return -1;
 }
+
 int size(TStack *stack){
 	return stack -> qtd;
+}
+
+int top(TStack *stack){
+	return stack->vector[stack->top];
 }
 
 int stackEmpty(TStack *stack){
@@ -42,7 +46,6 @@ int stackEmpty(TStack *stack){
     return 1;
 }
 
-
 void show(TStack *stack){
 	int i;
     for (i = 0; i < stack->qtd; i++){
@@ -51,9 +54,27 @@ void show(TStack *stack){
 }
 
 void reverse(TStack *stack){
+    TStack *stackAux = neww(stack->qtd);
+    TStack *stackAux2 = neww(stack->qtd);
+    int i,j, index;
+    for(i = 0; i <= stack->qtd; i++){
+        stackUp(stackAux,unStack(stack));
+    }
+
+    for(j = 0; j <= stack->qtd; j++){
+        stackUp(stackAux2,unStack(stackAux));
+    }
+
+   for(index = 0; index <= stack->qtd; index++){
+        stackUp(stack,unStack(stackAux2));
+    }
+}
+
+/*
+void reverse(TStack *stack){
 	TStack *stackAux = neww(stack -> qtd);
 	int i, j, index;
-	for(i=0; i<=satck -> qtd; i++){
+	for(i=0; i<=stack -> qtd; i++){
 		stackUp(stackAux, unStack(stack));
 	}
 	
@@ -71,7 +92,22 @@ TStack *reverseVector(TStack *stack) {
     }
     return stackAux;
 }
+*/
 
-int top(TStack *stack){
-	return stack->vector[stack->top];
+int removeValue(TStack *stack, int value){
+    if(stackEmpty(stack) == 1){
+        TStack *stackAux = neww(stack->qtd);
+        int i,j;
+        for(i = 0; i <= stack->qtd; i++){
+            if(top(stack) == value){
+                unStack(stack);
+            }
+            stackUp(stackAux,unStack(stack));
+        }
+
+        for(j = 0; j <= stackAux->qtd; j++){
+            stackUp(stack, unStack(stackAux));
+        }
+    }
 }
+

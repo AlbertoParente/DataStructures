@@ -29,7 +29,7 @@ TSoccer* winner(TSoccer *soccer){
 		printf("Empate...!\n");
 }
 
-TSoccer* rout(TSoccer *soccer){
+int * rout(TSoccer *soccer){
 	if(soccer -> scoreboard.soccer1 - soccer -> scoreboard.soccer2 > 3 || 
 	   soccer -> scoreboard.soccer2 - soccer -> scoreboard.soccer1 > 3)
 	   return 1;
