@@ -35,8 +35,8 @@ int main(int argc, char *argv[]) {
 	printf("Digite a memory: \n");
 	scanf("%i",&pSmartphone -> memory);
 	
-	printf("Digite a altura e a largura: \n");
-	scanf("%f %f",&pSmartphone -> height, &pSmartphone -> width);
+	printf("Digite a altura e em seguida a largura: \n");
+	scanf("%f" "%f", &pSmartphone -> height, &pSmartphone -> width);
 	
 	printf("\n%s \nMemoria de %iG\nAltura de %f\nLargura de %f \n", pSmartphone -> model, pSmartphone -> memory, pSmartphone -> height, pSmartphone -> width);
 	printf("\n=================================================================================================================\n\n");
