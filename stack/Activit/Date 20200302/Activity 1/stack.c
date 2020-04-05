@@ -4,43 +4,41 @@
 
 struct Stack {
 	int *vector;
-	int ts, qtd, top;	
+	int qtd, top;	
 };
 
 TStack *neww(int n){
 	TStack *stack = (TStack *)malloc(sizeof(TStack));
 	stack -> vector = malloc(sizeof(int) *n);
 	stack -> qtd = n;
-	stack -> ts = -1;
+	stack -> top = -1;
 	return stack;
 }
 
 void stackUp(TStack *stack, int x){
-	if(stack -> ts < stack -> qtd -1){
-		stack -> ts = stack -> ts +1;
-		stack -> vector[stack -> ts] = x;
+	if(stack -> top < stack -> qtd -1){
+		stack -> top++;
+		stack -> vector[stack -> top] = x;
 	}
 }
 
 int unStack(TStack *stack){
-	if(stack -> ts > -1){
-		stack -> ts = stack -> ts -1;
-		return stack -> vector[stack -> ts + 1];
+	if(stack -> top > -1){
+		stack -> top--;
+		return stack -> vector[stack -> top + 1];
 	}
-	else 
-		return -1;
 }
 
 int size(TStack *stack){
 	return stack -> qtd;
 }
 
-int top(TStack *stack){
-	return stack->vector[stack->top];
+int stackTop(TStack *stack){
+	return stack -> vector[stack->top];
 }
 
 int stackEmpty(TStack *stack){
-	if(stack->top == -1){
+	if(stack -> top == -1){
         return 0;
     }
     return 1;
@@ -70,44 +68,42 @@ void reverse(TStack *stack){
     }
 }
 
-/*
-void reverse(TStack *stack){
-	TStack *stackAux = neww(stack -> qtd);
-	int i, j, index;
-	for(i=0; i<=stack -> qtd; i++){
-		stackUp(stackAux, unStack(stack));
-	}
-	
-	for(j=0; j<=stackAux -> qtd; j++){
-		stackUp(stack, stackAux -> vector[j]);
-	}
-}
-
-TStack *reverseVector(TStack *stack) {
-    Stack stackAux = neww();
-    while (stack -> qtd > 0) {
-        stackAux -> vector[stackAux -> qtd] = stack -> vector[stack -> qtd - 1];
-        stack -> qtd--;
-        stackAux -> qtd++;
-    }
-    return stackAux;
-}
-*/
-
-int removeValue(TStack *stack, int value){
-    if(stackEmpty(stack) == 1){
+void removeValue(TStack *stack, int value){
+	if(stackEmpty(stack) == 1){
         TStack *stackAux = neww(stack->qtd);
         int i,j;
-        for(i = 0; i <= stack->qtd; i++){
-            if(top(stack) == value){
-                unStack(stack);
+        for(i = 0; i <= stack -> qtd; i++){
+            if(stackTop(stack) == value){
+    			unStack(stack);
             }
             stackUp(stackAux,unStack(stack));
         }
-
-        for(j = 0; j <= stackAux->qtd; j++){
-            stackUp(stack, unStack(stackAux));
+        
+        //stackAux = (TStack *)realloc(stack, sizeof(TStack));
+        
+        for(j = 0; j <= stack -> qtd; j++){
+	        stackUp(stack, unStack(stackAux));
         }
     }
 }
-
+/*
+void firstOccurrence(TStack *stack, int value){
+	TStack *aux1;
+	int i, k, cont = 0;
+	
+	k = stack -> top +1;
+	aux1 = neww(stack -> qtd);
+	
+	for(i = 0; i<(k); i++) {
+		stackUp(aux1,unStack(stack));
+	}
+	
+	for(i = 0; i<(k); i++) {
+		int v = unStack(aux1);
+		if(v != value || cont ==1) {
+			stackUp(stack, v);
+		} else {
+			cont = 1;
+		}
+	}	
+}*/

@@ -5,18 +5,22 @@
 
 int main(int argc, char *argv[]) {
 
-	TStack *s = neww(4);
-	stackUp(s, 1);
-	stackUp(s, 2);
-	stackUp(s, 3);
-	stackUp(s, 4);
-	removeValue(s, 4);
-	show(s);
-	//top(s);
-	reverse(s);
+	TStack *s = neww(3);
 	
+	stackUp(s, 7);
+	stackUp(s, 9);
+	stackUp(s, 10);
+	
+	show(s);
+	
+	//firstOccurrence(s, 7);	
+	removeValue(s, 7);
+	
+	//reverse(s);
     printf("\n");
+    
     show(s);
+    free(s);
 	return 0;
 	
 }
