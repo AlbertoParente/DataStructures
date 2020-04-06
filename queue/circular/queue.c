@@ -52,8 +52,7 @@ int queueFrontPosition(TQueue *queue) {
 int empty(TQueue *queue) {
 	if(queue -> start == -1) {
 		return 0;
-	}
-	else {
+	} else {
 		return 1;
 	}
 }
