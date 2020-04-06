@@ -9,16 +9,16 @@ struct Queue {
 
 TQueue *neww() {
 	TQueue* queue = (TQueue*)malloc(sizeof(TQueue));
-	queue->start = -1;
-	queue->final = -1;
-	queue->quantity = 0;
+	queue -> start = -1;
+	queue -> final = -1;
+	queue -> quantity = 0;
 
 	return queue;	
 }
 
 void enqueue(TQueue *queue, int value) {
-	if ( ! ((queue -> final + 1) % 5 == queue -> start)) {
-		if (queue -> start == -1) queue -> start = 0;
+	if(!((queue -> final + 1) % 5 == queue -> start)) {
+		if(queue -> start == -1) queue -> start = 0;
 		queue -> final = (queue -> final + 1) % 5;
 		queue -> vector[queue -> final] = value;
 		queue -> quantity++;
@@ -27,9 +27,9 @@ void enqueue(TQueue *queue, int value) {
 
 int dequeue(TQueue *queue) {
 	int queuing = -1;
-	if (queue -> start > -1) {
+	if(queue -> start > -1) {
 		queuing = queue -> vector[queue -> start];
-		if (queue -> start == queue -> final) {
+		if(queue -> start == queue -> final) {
 			queue -> start = queue -> final = -1;
 		} else {
 		queue -> start = (queue -> start + 1) % 5;
@@ -44,13 +44,13 @@ int queueSize(TQueue *queue) {
 }
 
 int queueFrontPosition(TQueue *queue) {
-	if (queue -> start > -1) {
+	if(queue -> start > -1) {
 		return queue -> vector[frontPosition(queue)];
 	}
 }
 
 int empty(TQueue *queue) {
-	if (queue -> start == -1) {
+	if(queue -> start == -1) {
 		return 0;
 	}
 	else {
@@ -59,10 +59,9 @@ int empty(TQueue *queue) {
 }
 
 int full(TQueue *queue) {
-	if (((queue->final + 1) % 5 == queue->start)) {
+	if(((queue -> final + 1) % 5 == queue -> start)) {
 		return 0;
-	}
-	else {
+	} else {
 		return 1;
 	}
 }
@@ -70,9 +69,9 @@ int full(TQueue *queue) {
 void show(TQueue *queue) {
 	int i, index;
 	index = queue -> start;
-	printf("\nInicio: %i\n", queue -> vector[queue->start]);
-	printf("\nFinal: %i\n", queue -> vector[queue->final]);
-	for (i = 0; i < queue -> quantity; i++) {
+	printf("\nInicio: %i\n", queue -> vector[queue -> start]);
+	printf("\nFinal: %i\n", queue -> vector[queue -> final]);
+	for(i = 0; i < queue -> quantity; i++) {
 		printf("\n%i\n", queue -> vector[index]);
 		index = (index + 1) % 5;
 	}
@@ -83,21 +82,21 @@ int frontPosition(TQueue *queue) {
 }
 
 void destruct(TQueue *queue) {
-	if (queue != NULL){
+	if(queue != NULL){
 		free(queue);
 	}
 }
 
 void queueInvert(TQueue *queue) {
 	int size = queueSize(queue);
-	if (size == -1) {
+	if(size == -1) {
 		printf("A Pilha esta vazia.\n");
 		return;
 	}
 
 	int i, inversor = size / 2, queueAux, start = queue -> start, final = queue -> final - 1;
 
-	for (i = 0; i < inversor; i++) {
+	for(i = 0; i < inversor; i++) {
 		queueAux = queue -> vector[start];
 		queue -> vector[start] = queue -> vector[final];
 		queue -> vector[final] = queueAux;
