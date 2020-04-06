@@ -61,8 +61,7 @@ int removeValue(TQueue* queue, int input) {
 
 	for(i = i; i > 0; i--) {
 		enqueue(queue, dequeue(queue));
-	}
-		
+	}		
 }
 
 void invert(TQueue* queue) {
@@ -87,7 +86,7 @@ int main(int argc, char*argv[]) {
 	enqueue(queue, 9);
 	enqueue(queue, 10);
 	
-	show(queue);
+	printValueWithoutEmptying(queue);
 	/*
 	removeValue(queue, 11);
 	removeValue(queue, 12);
@@ -97,9 +96,9 @@ int main(int argc, char*argv[]) {
 	/*removeValue(queue, 4);
 	removeValue(queue, 10);
 	show(queue);*/
-	
+	printEmptyingValue(queue);
 
-	invert(queue);
+	/*invert(queue);*/
 	show(queue);
 	
 }
