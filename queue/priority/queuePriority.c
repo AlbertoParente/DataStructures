@@ -23,6 +23,7 @@ int queueSize(TQueuePriority *queue) {
 int empty(TQueuePriority *queue) {
 	return queue -> size == 0;
 }
+
 int full(TQueuePriority *queue) {
 	return queue -> size == queue -> quantity;
 }
@@ -98,4 +99,14 @@ void show(TQueuePriority *queue) {
 	}		
 	
 	printf("");
+}
+
+int extractMax(TQueuePriority *queue){
+    if(queue -> quantity > 0) {
+		int max = queue -> vector[1];
+		queue -> vector[1] = queue -> vector[queue -> quantity];
+		queue -> quantity = queue -> quantity -1;
+		correctDown(queue);
+		return max;
+    }
 }

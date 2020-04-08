@@ -11,4 +11,4 @@ void correctDown(TQueuePriority *queue);
 void enqueue(TQueuePriority *queue, int value);
 int dequeue(TQueuePriority *queue);
 void show(TQueuePriority *queue);
-
+int extractMax(TQueuePriority *queue);
