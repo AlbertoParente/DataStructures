@@ -110,3 +110,11 @@ int extractMax(TQueuePriority *queue){
 		return max;
     }
 }
+
+void insert(TQueuePriority *queue, int value) {
+    if(queue -> quantity < TAM) {
+        queue -> quantity = queue -> qtd +1;
+        queue -> vetor[queue -> quantity] = value;
+        corrigirSubindo(queue);
+    }
+}
