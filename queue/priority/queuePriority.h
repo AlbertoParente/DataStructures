@@ -12,3 +12,5 @@ void enqueue(TQueuePriority *queue, int value);
 int dequeue(TQueuePriority *queue);
 void show(TQueuePriority *queue);
 int extractMax(TQueuePriority *queue);
+void insert(TQueuePriority *queue);
+int findBigger(TQueuePriority *queue);

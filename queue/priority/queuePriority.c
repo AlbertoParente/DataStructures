@@ -118,3 +118,13 @@ void insert(TQueuePriority *queue, int value) {
         corrigirSubindo(queue);
     }
 }
+
+int findBigger(TQueuePriority *queue) {
+	int i, biggerValue;
+	for (i = queue -> ini, biggerValue = queue -> vector[i]; i != queue -> fim; i = i == TAM-1 ? 0 : i+1) {
+		if(queue -> vector[i] > biggerValue) {
+			biggerValue = queue -> vector[i];
+		}
+	}
+	return biggerValue;
+}
