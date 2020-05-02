@@ -102,3 +102,18 @@ void removerTheStart(TList *list) {
 
 	list -> quantity--;
 }
+
+int compare(TList* list, TList* list2) {
+	int i, valueActual, valueList2, quantityList = size(list);
+	int counter = 0;
+
+	for(i = 0; i < quantityList; i++) {
+		valueActual = list -> vector[i];
+		valueList2 = search(list2, valueActual);
+		if(valueList2 != -1) {
+			counter++;
+		}		
+	}
+
+	return counter;
+}
