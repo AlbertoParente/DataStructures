@@ -78,9 +78,9 @@ void extractAll(TList *list, int value) {
     }
 }
 
-void insertStart(TList *list, int value) {
+void insertTheStart(TList *list, int value) {
     int index, quantityElements = size(list);
-    
+
     if(list -> quantity == TAM) return;
 
     for(index = quantityElements -1; index >= 0; index--) {
@@ -89,4 +89,16 @@ void insertStart(TList *list, int value) {
 
     list -> vector[index +1] = value;
     list -> quantity++;
+}
+
+void removerTheStart(TList *list) {
+	int index, quantity = size(list);
+
+	if(size(list) == 0) return;
+
+	for(index = 1; index < quantity; index++) {
+		list -> vector[index - 1] = list -> vector[index];
+	}
+
+	list -> quantity--;
 }
