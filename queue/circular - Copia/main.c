@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "queue.h"
-
+#include "stack.h"
 
 void printValueWithoutEmptying(TQueue *queue) {
 	int i;
@@ -31,7 +31,7 @@ int removeValue(TQueue *queue, int input) {
 		printf("Fila esta vazia...");
 		return;
 	}
-
+	
 	int i = queueSize(queue) - 1;
 	int j;
 	for(j = 0; queueFrontPosition(queue) != input; i--, j++) {
@@ -40,7 +40,7 @@ int removeValue(TQueue *queue, int input) {
 			return;
 		} 
 	}
-
+	
 	dequeue(queue);
 
 	for(i = i; i > 0; i--) {
@@ -62,18 +62,16 @@ void invert(TQueue *queue) {
 
 int main(int argc, char*argv[]) {
 	TQueue* queue = neww();	
-
+	TStack* stack = newww(3);
+	
 	enqueue(queue, 1);
 	enqueue(queue, 2);
 	enqueue(queue, 3);
-	enqueue(queue, 4);
-	enqueue(queue, 5);
-
+	
+	inverterValue(queue);
+	
 	show(queue);
 	
-	removeValue(queue, 3);
-
-	show(queue);
-
+	
 	
 }
