@@ -7,5 +7,5 @@ int extract(TListSimple *list, int value);
 TListSimple *search(TListSimple *list, int value);
 void show(TListSimple *list);
 void showKnot(TListSimple *list);
-
+void insertTheStart(TListSimple *list, int value);
 

@@ -72,3 +72,17 @@ void showKnot(TListSimple *list) {
 	if(list == NULL) return;
 	 printf("%d", list -> element);
 }
+
+void insertTheStart(TListSimple *list, int value) {
+	TListSimple *listNew = create(value);
+	listNew -> next = list -> next;
+	list -> next = listNew;
+}
+
+TListSimple *removeTheStart(TListSimple *list) {
+	if(list == NULL) return NULL;
+	TListSimple *listRemove = list -> next;
+	if(listRemove == NULL) return NULL;
+	list -> next = listRemove -> next;
+	return listRemove;
+}
