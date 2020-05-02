@@ -34,7 +34,41 @@ void insert(TListSimple *list, int value) {
 	listAux -> next = create(value);
 }
 
-int extract(TListSimple *list, int value);
-TListSimple search(TListSimple *list, int value);
-int print(TListSimple *list);
-int show(TListSimple *list);
+int extract(TListSimple *list, int value) {
+	if(list == NULL) return;
+	TListSimple *listAux = list;
+	while(listAux -> next != NULL) {
+		if(listAux -> next -> element == value) {
+			listAux -> next = listAux -> next -> next;
+		} else {
+			listAux = listAux -> next;
+		}
+	}
+}
+
+TListSimple *search(TListSimple *list, int value) {
+	if(list == NULL) return;
+	TListSimple *listAux = list -> next;
+	while(listAux != NULL) {
+		if(listAux -> element == value) {
+			return listAux;
+		} else {
+			listAux = listAux -> next;
+		}
+	}
+}
+
+void show(TListSimple *list) {
+	if(list == NULL) return;
+	TListSimple *listAux = list -> next;
+	printf("\n");
+	while(listAux != NULL) {
+		printf("%d ", listAux -> next);
+		listAux = listAux -> next;
+	}
+}
+
+void showKnot(TListSimple *list) {
+	if(list == NULL) return;
+	 printf("%d", list -> element);
+}
