@@ -103,6 +103,19 @@ void removerTheStart(TList *list) {
 	list -> quantity--;
 }
 
+void invert(TList *list) {
+	int index, n, quantityElements = size(list);
+	int startingPosition = 0;
+
+	if(list -> quantity == TAM) return;
+
+	for(index = 0; index < quantityElements / 2; index++) {			
+		startingPosition = list -> vector[index];
+		list -> vector[index] = list -> vector[quantityElements - index - 1 ];
+		list -> vector[quantityElements - index - 1] = startingPosition;
+	}
+}
+
 int compare(TList* list, TList* list2) {
 	int i, valueActual, valueList2, quantityList = size(list);
 	int counter = 0;

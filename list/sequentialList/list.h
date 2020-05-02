@@ -9,4 +9,5 @@ void print(TList *list);
 void extractAll(TList *list, int value);
 void insertTheStart(TList *list, int value);
 void removerTheStart(TList *list);
+void invert(TList *list);
 int compare(TList* list, TList* list2);
