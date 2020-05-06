@@ -130,3 +130,34 @@ int compare(TList* list, TList* list2) {
 
 	return counter;
 }
+
+void insertInPosition(TList* list, int value, int position) {
+	int index, quantityElements = size(list);
+
+	if(list -> quantity == TAM || position >= list -> quantity +1) return;
+
+	for(index = quantityElements - 1; index >= 0; index--) {		
+		list -> vector[index + 1] = list -> vector[index];
+		if(index == position || index + 1 == position) {
+			list -> vector[position] = value;
+			list -> quantity++;
+			return;
+		}		
+	}	
+}
+
+void extractInPosition(TList *list, int position) {
+	int index, quantityElements = size(list);
+
+	if(list -> quantity == TAM) return;
+
+	if(position < quantityElements) {
+		for(index = position + 1; index < quantityElements; index++) {
+			list -> vector[index - 1] = list -> vector[index];
+		}
+
+		list -> quantity--;
+	} else {
+		return;
+	}
+}
