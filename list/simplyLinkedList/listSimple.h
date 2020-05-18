@@ -9,3 +9,5 @@ void show(TListSimple *list);
 void showKnot(TListSimple *list);
 void insertTheStart(TListSimple *list, int value);
 TListSimple *removeTheStart(TListSimple *list);
+void insertInPosition(TListSimple* list, int value, int position);
+void removeInPosition(TListSimple* list, int position);

@@ -86,3 +86,38 @@ TListSimple *removeTheStart(TListSimple *list) {
 	list -> next = listRemove -> next;
 	return listRemove;
 }
+
+void insertInPosition(TListSimple *list, int value, int position) {
+	TListSimple *listAux = list;
+	int counter = 0;
+
+	if(list == NULL) return;
+
+	while(counter < position) {
+		listAux = listAux -> next;
+		counter++;		
+	}
+
+	TListSimple *listNew = create(value);
+	
+	listNew -> next = listAux -> next;
+	listAux -> next = listNew;
+}
+
+void removeInPosition(TListSimple *list, int position) {
+	TListSimple *listAux = list;
+	int counter = 0;
+
+	if(list == NULL) return;
+
+	while(counter < position) {
+		listAux = listAux -> next;		
+		counter++;
+	}
+
+	if(listAux -> next -> next == NULL) {		
+		listAux -> next = NULL;
+	} else {
+		listAux -> next = listAux -> next -> next;
+	}	
+}
