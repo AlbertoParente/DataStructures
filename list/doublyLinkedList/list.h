@@ -8,3 +8,4 @@ TListDoubly *search(TListDoubly *list, int value);
 void show(TListDoubly *list);
 void insertInPosition(TListDoubly *list, int value, int position);
 TListDoubly* removeInPosition(TListDoubly *list, int position);
+void tornarCircular(TListDoubly *list);

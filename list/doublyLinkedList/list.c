@@ -113,3 +113,17 @@ TListDoubly* removeInPosition(TListDoubly *list, int position){
 	}
 	return NULL;
 }
+
+void becomeCircular(TListDoubly *list) {
+	TListDoubly *listAux = list;
+	TListDoubly *sentinel = list;
+	
+	while(listAux != NULL) {
+		listAux = listAux -> next;
+		if(listAux -> next == NULL) {
+			listAux -> next = sentinel;
+			sentinel -> previous = listAux;
+			break;
+		}
+	}
+}
