@@ -13,3 +13,4 @@ void invert(TList *list);
 int compare(TList* list, TList* list2);
 void insertInPosition(TList* list, int value, int position);
 void extractInPosition(TList *list, int position);
+int remove_Impares(TList *list);

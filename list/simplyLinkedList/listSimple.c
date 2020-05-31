@@ -121,3 +121,49 @@ void removeInPosition(TListSimple *list, int position) {
 		listAux -> next = listAux -> next -> next;
 	}	
 }
+
+int removeSortedDescending(TListSimple *list, int value) {
+    TListSimple *listAux = list;
+
+    if (list == NULL) return;
+
+    while(listAux -> next != NULL) {
+        TListSimple *valueRemoved = NULL;;
+        
+		if(listAux -> next -> element <= value) {
+            valueRemoved = listAux -> next = listAux -> next -> next;
+            return valueRemoved;
+        } else {
+            listAux = listAux -> next;
+        }
+    }
+}
+
+/*
+int compareLinkedLists(TNo* list, TNoDe* no){
+    TNoDe* listDoubly = no;
+    TNo* listSimple = list;
+
+    int positionListD = 0, positionListS = 0, quantityListS = size(listSimple), quantityListD = size(listDoubly), countList = 0;
+
+    while(listSimple -> next != NULL && listDoubly -> next != NULL) {
+        listSimple = listSimple -> next;
+        listDoubly = listDoubly -> next;
+
+        if (positionListD == quantityListS) {
+            
+			if (listDoubly -> element == listSimple -> element) {
+                positionListD++;
+                quantityListS++;
+                countList++;
+            }
+        }
+    }
+
+    if (countList == quantityListS && countList == quantityListD) {
+        return 1;
+    } else {
+        return 0;
+    }
+}
+*/

@@ -15,7 +15,7 @@ TList *create() {
     
     return list;
 }
- 
+
 int size(TList *list) {
     return list -> quantity;
 }
@@ -25,7 +25,7 @@ void insert(TList *list, int value) {
     int quantityElements = list -> quantity;
     if(list -> quantity == TAM) return;
     
-    list ->  vector[quantityElements] = value;
+    list -> vector[quantityElements] = value;
     list -> quantity++;
 }
 
@@ -153,11 +153,25 @@ void extractInPosition(TList *list, int position) {
 
 	if(position < quantityElements) {
 		for(index = position + 1; index < quantityElements; index++) {
-			list -> vector[index - 1] = list -> vector[index];
+			list -> vector[index -1] = list -> vector[index];
 		}
 
 		list -> quantity--;
 	} else {
 		return;
 	}
+}
+
+int remove_Impares(TList *list) {
+    int index = 0;
+    
+    while(index != size(list)) {
+        if (list -> vector[index] % 2 != 0) {
+            extract(list, list -> vector[index]);
+            index = 0;
+        } else {
+            index++;
+        }
+    }
+    return 0;
 }
