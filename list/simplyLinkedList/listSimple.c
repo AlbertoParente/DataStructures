@@ -2,7 +2,21 @@
 #include <stdlib.h>
 #include "listSimple.h"
 
-struct List {
+
+struct ListD {
+	int element;
+	TListDoubly *next;
+	TListDoubly *previous;
+};
+
+TListDoubly *neww(int value) {
+	TListDoubly *listD = (TListDoubly *)malloc(sizeof(TListDoubly));
+	listD -> element = value;
+	listD -> next = NULL;
+	listD -> previous = NULL;
+}
+
+struct ListS {
 	int element;
 	TListSimple *next;
 };
@@ -25,6 +39,7 @@ int size(TListSimple *list) {
 	return count;
 }
 
+//Iserir da Simplemente encadeada
 void insert(TListSimple *list, int value) {
 	if(list == NULL) return;
 	TListSimple *listAux = list;
@@ -32,6 +47,24 @@ void insert(TListSimple *list, int value) {
 		listAux = listAux -> next;
 	}
 	listAux -> next = create(value);
+}
+
+
+//Iserir da Duplamente encadeada
+void insertD(TListDoubly *listD, int value) {
+	if(listD == NULL) return;
+
+	TListDoubly *listAux = listD;
+
+	while(listAux -> next != NULL){
+		listAux = listAux -> next;
+	}
+
+	TListDoubly *newElement = create(value);
+	
+	listAux -> next = newElement;
+	newElement -> previous = listAux;
+
 }
 
 int extract(TListSimple *list, int value) {
@@ -121,7 +154,7 @@ void removeInPosition(TListSimple *list, int position) {
 		listAux -> next = listAux -> next -> next;
 	}	
 }
-
+/*
 int removeSortedDescending(TListSimple *list, int value) {
     TListSimple *listAux = list;
 
@@ -137,7 +170,7 @@ int removeSortedDescending(TListSimple *list, int value) {
             listAux = listAux -> next;
         }
     }
-}
+}*/
 
 /*
 int compareLinkedLists(TNo* list, TNoDe* no){
@@ -167,3 +200,30 @@ int compareLinkedLists(TNo* list, TNoDe* no){
     }
 }
 */
+
+
+
+int comparar_encadeadas(TListSimple* list, TListDoubly* listD) {
+    TListDoubly* listaDupla = listD;
+    TListSimple* listaSimples = list;
+    int avaliador = 1;
+
+    while (listaDupla != NULL && listaSimples != NULL)
+    {
+        if (listaDupla->element != listaSimples->element)
+        {
+            printf("O valor é diferente e retorna 0 \n");
+            avaliador = 0;
+            return avaliador;
+        }
+        listaDupla = listaDupla->next;
+        listaSimples = listaSimples->next;
+    }
+    
+    if(avaliador == 1){
+        printf("As listas são iguais! 1 \n");
+        return 1;    
+    }
+    listaDupla == NULL;
+    listaSimples == NULL;
+}
