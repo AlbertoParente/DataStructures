@@ -13,13 +13,13 @@ int main(int argc, char *argv[]) {
 	insert(list, 6);
 	insert(list, 8);
 	insert(list, 9);
-	insert(list, 11);	
-	insert(list, 13);	
+	insert(list, 11);
+	insert(list, 14);
 	
 	print(list);
 	printf("\n");
 	
-	remove_Impares(list);
+	sum1(list, 0, 6);
 	
 	print(list);
 	return 0;

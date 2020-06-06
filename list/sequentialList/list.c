@@ -176,14 +176,18 @@ int remove_Impares(TList *list) {
     return 0;
 }
 
-int aumenta1(TList *list, int indexStart, int indexEnd) {
-	/* Verificar se a lista tem mais de 1 elemento; se tiver, aplica recursivamente; senão, aumenta em 1 esse elemento
-		divide em duas partes -> achar o indice do meio
-		aumenta1(list, inicio, meio)
-		aumenta1(list, meio, fim) 
-		53:30 aula 25/05 */
+// Recursive Call
+void sum1(TList *list, int indexStart, int indexEnd) {
+	int middle = (indexStart + indexEnd) / 2;
 	
+	if(indexStart > indexEnd) return;
 	
-	
-	
+	if(indexStart == indexEnd) {
+        list -> vector[indexStart] += 1;
+        return;
+    };
+    
+    list -> vector[middle] += 1;
+	sum1(list, indexStart, middle -1);
+    sum1(list, middle +1, indexEnd);
 }
