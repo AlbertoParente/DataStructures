@@ -208,3 +208,24 @@ int total(TList* list, int indexStart, int indexEnd) {
     
 	return list -> total;
 }
+
+void sortingValues(TList *list, int value){
+    int index, i;
+	
+	if(value < 0) {
+    	return;	
+    }
+        
+    for(i = 0; i < value +1; i++){
+        
+		if(list -> vector[value] < list -> vector[i]) {
+            index = list -> vector[i];
+            list -> vector[i] = list -> vector[value];
+            list -> vector[value] = index;
+        }
+    }
+    
+    sortingValues(list, value -1);
+}
+
+
