@@ -7,12 +7,13 @@ const int TAM = 100;
 struct List{
     int vector[100];
     int quantity;
+    int total;
 };
  
 TList *create() {
     TList *list = (TList*) malloc(sizeof(TList));
     list -> quantity = 0;
-    
+    list -> total = 0;
     return list;
 }
 
@@ -176,7 +177,7 @@ int remove_Impares(TList *list) {
     return 0;
 }
 
-// Recursive Call
+// Recursive Call --------------------------------------------------------------
 void sum1(TList *list, int indexStart, int indexEnd) {
 	int middle = (indexStart + indexEnd) / 2;
 	
@@ -190,4 +191,20 @@ void sum1(TList *list, int indexStart, int indexEnd) {
     list -> vector[middle] += 1;
 	sum1(list, indexStart, middle -1);
     sum1(list, middle +1, indexEnd);
+}
+
+int total(TList* list, int indexStart, int indexEnd) {
+    if(indexStart > indexEnd) return;
+    
+    if(indexStart == indexEnd) {
+        list -> total += list -> vector[indexEnd];
+        return list -> total;
+    }
+    
+    int middle = (indexStart + indexEnd) / 2;
+    list -> total += list -> vector[middle];
+    total(list, indexStart, middle -1);
+    total(list, middle +1, indexEnd);
+    
+	return list -> total;
 }

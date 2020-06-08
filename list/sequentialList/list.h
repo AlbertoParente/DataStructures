@@ -15,3 +15,4 @@ void insertInPosition(TList* list, int value, int position);
 void extractInPosition(TList *list, int position);
 int remove_Impares(TList *list);
 void sum1(TList *list, int indexStart, int indexEnd);
+int total(TList* list, int indexStart, int indexEnd);
