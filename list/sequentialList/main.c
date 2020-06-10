@@ -22,5 +22,16 @@ int main(int argc, char *argv[]) {
 	sum1(list, 0, 6);
 	
 	print(list);
+	
+	//------------------------
+	
+	int odd_n-esimo(int n) {
+ 		return n==1 ? 1: odd_n-esimo(n-1) + 2;
+	}
+	
+	int fibonacci_n-esimo(int n) {
+ 		return n < 4 ? 1: fibonacci_n-esimo(n-1) + fib_t(n - 2) + fib_t(n - 3);
+	}
+
 	return 0;
 }

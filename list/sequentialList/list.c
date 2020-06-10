@@ -227,5 +227,3 @@ void sortingValues(TList *list, int value){
     
     sortingValues(list, value -1);
 }
-
-
